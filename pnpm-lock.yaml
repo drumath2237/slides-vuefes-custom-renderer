@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@iconify-json/bi':
+        specifier: ^1.2.7
+        version: 1.2.7
       '@iconify-json/twemoji':
         specifier: ^1.2.5
         version: 1.2.5
@@ -233,6 +236,9 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
+
+  '@iconify-json/bi@1.2.7':
+    resolution: {integrity: sha512-IPz8WNxmLkH1I9msl+0Q4OnmjjvP4uU0Z61a4i4sqonB6vKSbMGUWuGn8/YuuszlReVj8rf+3gNv5JU8Xoljyg==}
 
   '@iconify-json/carbon@1.2.27':
     resolution: {integrity: sha512-tufpkYXBDlXqczQEZo6QgvfwBd5aIK36gt+pHOI66eK4KOO8oh7CIHDZ4JsiSnOyjqRbApVHzXv4Nz8NO0GPFQ==}
@@ -3250,6 +3256,10 @@ snapshots:
   '@hono/node-server@1.19.17(hono@4.13.8)':
     dependencies:
       hono: 4.13.8
+
+  '@iconify-json/bi@1.2.7':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/carbon@1.2.27':
     dependencies:

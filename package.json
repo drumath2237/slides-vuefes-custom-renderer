@@ -8,6 +8,7 @@
     "export": "slidev export"
   },
   "dependencies": {
+    "@iconify-json/bi": "^1.2.7",
     "@iconify-json/twemoji": "^1.2.5",
     "@iconify-json/uim": "^1.2.3",
     "@slidev/cli": "^53.0.0",
