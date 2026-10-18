@@ -6,6 +6,6 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    base: "/slides-csharpkaigi2026-unity-websocket-server/",
+    base: "/slides-vuefes-custom-renderer/",
   };
 });
