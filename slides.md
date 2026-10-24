@@ -94,43 +94,67 @@ layout: section
 ## （公開予定）
 
 ---
-layout: center
+layout: two-cols-header
 hidenToc: true
 ---
 
 ## サンプルプロジェクト
 
+::left::
+
+<div class="mr-5">
+
 <br/>
 
-<img src="/images/sample.png" class="w-120" />
+<img src="/images/sample.png" class="w-100" />
 
-https://github.com/drumath2237/Unity-SystemWSServer-Playground
+https://github.com/drumath2237/vue-custom-3d-renderer-sandbox
+</div>
+
+
+::right::
+
+<div class="ml-5">
+<br/>
+
+<img src="/images/sample2.png" class="w-100"/>
+
+https://github.com/drumath2237/vue-custom-renderer-playground
+
+</div>
+
+
 
 ---
 hideInToc: true
 ---
 
-## アジェンダ
+# アジェンダ
 
 <br/>
 
 <Toc maxDepth="1"/>
 
 ---
+layout: section
 ---
 
-```ts
-import { defineShikiSetup } from '@slidev/types'
+# Custom Rendererと<br/>Web3Dライブラリについて
 
-export default defineShikiSetup(() => {
-  return {
-    themes: {
-      dark: '',
-      light: 'github-light',
-    },
-    transformers: [
-      // ...
-    ],
-  }
-})
-```
+---
+layout: section
+---
+
+# Custom Rendererによる<br/>3Dシーンの実装
+
+---
+layout: section
+---
+
+# おわりに
+
+---
+level: 2
+---
+
+# 参考文献
