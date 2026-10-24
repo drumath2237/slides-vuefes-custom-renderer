@@ -94,6 +94,17 @@ layout: section
 ## （公開予定）
 
 ---
+level: 2
+---
+
+# 本日のお話
+
+- 最近Custom Rendererを用いた3Dラッパライブラリを作っていた
+- なんとなくCustom Rendererの有志の情報があんまりなさそう
+  - → 共有してみよう
+- TresJSなどがどのような仕組みを使っているのか<br/>気になる方に刺さると嬉しい
+
+---
 layout: two-cols-header
 hidenToc: true
 ---
@@ -283,14 +294,13 @@ level: 2
 
 ```ts
 <SceneVue>
-  <DirectionalLight :direction="vec3(-0.5, -1, 1)" />
-  <Box :position="vec3(0, 0.5, 0)" :size="0.5">
-    <Material :color="{ r: 1, g: 0, b: 0 }" />
-    <Sphere :diameter="0.3" :position="vec3(0.5, 0, 0)">
-      <Material :color="{ r: 1, g: 1, b: 1 }" />
+  <Box>
+    <Material />
+    <Sphere>
+      <Material />
     </Sphere>
-    <Box :position="vec3(0, -0.5, 0)" :size="0.5">
-      <Material :color="{ r: 0, g: 0, b: 1 }" />
+    <Box>
+      <Material />
     </Box>
   </Box>
 </SceneVue>
@@ -315,20 +325,19 @@ level: 2
 
 ```ts
 <SceneVue>
-  <DirectionalLight :direction="vec3(-0.5, -1, 1)" />
-  <Box :position="vec3(0, 0.5, 0)" :size="0.5">
-    <Material :color="{ r: 1, g: 0, b: 0 }" />
-    <Sphere :diameter="0.3" :position="vec3(0.5, 0, 0)">
-      <Material :color="{ r: 1, g: 1, b: 1 }" />
+  <Box>
+    <Material />
+    <Sphere>
+      <Material />
     </Sphere>
-    <Box :position="vec3(0, -0.5, 0)" :size="0.5">
-      <Material :color="{ r: 0, g: 0, b: 1 }" />
+    <Box>
+      <Material />
     </Box>
   </Box>
 </SceneVue>
 ```
 
-- 最初に`createElement`が呼ばれて<br/>Elementを作成しておく
+- `createElement`が呼ばれて<br/>Elementを作成しておく
 - この時に親子関係などはいったん置いておき、オブジェクト単体を作成
 - ツリーが走査される過程で行きがけ順に呼ばれる
 
@@ -349,23 +358,21 @@ level: 2
 
 ```ts
 <SceneVue>
-  <DirectionalLight :direction="vec3(-0.5, -1, 1)" />
-  <Box :position="vec3(0, 0.5, 0)" :size="0.5">
-    <Material :color="{ r: 1, g: 0, b: 0 }" />
-    <Sphere :diameter="0.3" :position="vec3(0.5, 0, 0)">
-      <Material :color="{ r: 1, g: 1, b: 1 }" />
+  <Box>
+    <Material />
+    <Sphere>
+      <Material />
     </Sphere>
-    <Box :position="vec3(0, -0.5, 0)" :size="0.5">
-      <Material :color="{ r: 0, g: 0, b: 1 }" />
+    <Box>
+      <Material />
     </Box>
   </Box>
 </SceneVue>
 ```
 
-- 並行して`insert`が呼ばれる
-- parentのElementがわかるので親子関係を構築
+- Elementが作成されたら`insert`が呼ばれる
+- parentのElementがわかるので、ここで親子関係を構築すると良さそう
 - ツリーが走査される過程で帰りがけ順に呼ばれる
-
 
 ::right::
 
@@ -397,9 +404,9 @@ level: 2
 </SceneVue>
 ```
 
-
 ::right::
 
+<img src="/images/result.png" class="ml-5">
 
 ---
 layout: section
@@ -411,4 +418,25 @@ layout: section
 level: 2
 ---
 
+# おわりに
+
+<br/>
+
+- DOM以外の表現をしたいときの強力なツールだと感じた
+- Custom Rendererを通してVueのレンダリングの仕組みに興味を持てた
+- HostElement/HostNodeの設計はちょっと迷うなぁ
+
+---
+level: 2
+---
+
 # 参考文献
+
+- Custom Renderer API  
+https://vuejs.org/api/custom-renderer.html
+- @vue/runtime-dom(github)  
+https://github.com/vuejs/core/tree/main/packages/runtime-dom
+- Building a Vue 3 Custom Renderer(youtube)  
+https://www.youtube.com/playlist?list=PLC2LZCNWKL9b876nPMVULEyBzkVoH8B7n
+- vue-pdf-renderer-demo  
+https://github.com/lmiller1990/vue-pdf-renderer-demo/tree/article-final
